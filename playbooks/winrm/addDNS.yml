@@ -1,0 +1,11 @@
+- name: DNS
+  hosts: hlo-dc
+  gather_facts: no
+
+  tasks:
+    - name: "Crerate A record"
+      community.windows.win_dns_record:
+         name: "testserver.athenatst.apps.local"
+         type: "A"
+         value: "10.1.1.21"
+         zone: "athenatst.apps.local"
